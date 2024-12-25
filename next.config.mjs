@@ -5,7 +5,10 @@ const nextConfig = {
     },
     env: {
         API_URL: 'https://aromosa.ru/api'
-    }
+    },
+    experimental: {
+        appDir: false,
+      },
 };
 
 export default nextConfig;
