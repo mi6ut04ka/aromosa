@@ -2,7 +2,7 @@
 
 import NextBreadcrumbs from "../components/ui/NextBreadcrumbs";
 import { apiRequest } from "../lib/api";
-import React, { useCallback } from "react";
+import React, { Suspense, useCallback } from "react";
 
   
 export default function ProductsLayout({ children }) {
@@ -20,31 +20,32 @@ export default function ProductsLayout({ children }) {
     return null;
   }
 
+  const getDefaultTextGenerator = (path) => {
+    const customNames = {
+      candles: 'Свечи',
+      molded: 'Формовые свечи',
+      container: 'Контейнерные свечи',
+      products: 'Продукция',
+      gypsum: 'Гипсовые изделия',
+      sets: 'Наборы',
+      stands: 'Подставки',
+      statues: 'Статуэтки',
+      vases: 'Вазы'
+    };
+    return customNames[path] || path.replace(/-/g, ' ').charAt(0).toUpperCase() + path.slice(1);
+  }
 
 
     return (
-      <>
+      <Suspense fallback={<div>Загрузка...</div>}>
         <NextBreadcrumbs
         getTextGenerator={getTextGenerator}
-        getDefaultTextGenerator={(path) => {
-          const customNames = {
-            candles: 'Свечи',
-            molded: 'Формовые свечи',
-            container: 'Контейнерные свечи',
-            products: 'Продукция',
-            gypsum: 'Гипсовые изделия',
-            sets: 'Наборы',
-            stands: 'Подставки',
-            statues: 'Статуэтки',
-            vases: 'Вазы'
-          };
-          return customNames[path] || path.replace(/-/g, ' ').charAt(0).toUpperCase() + path.slice(1);
-        }}
+        getDefaultTextGenerator={(path)=>getDefaultTextGenerator(path)}
         />
         <>
           {children}
         </>
-      </>
+      </Suspense>
     );
   }
   

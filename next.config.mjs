@@ -4,7 +4,7 @@ const nextConfig = {
         domains: ['192.168.0.15'],
     },
     env: {
-        API_URL: 'https://aromosa/public/api'
+        API_URL: 'https://aromosa.ru/api'
     }
 };
 
