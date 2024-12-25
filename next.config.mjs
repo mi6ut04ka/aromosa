@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ['192.168.0.15'],
+        domains: ['89.104.71.159'],
     },
     env: {
         API_URL: 'https://aromosa.ru/api'
