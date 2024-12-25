@@ -7,9 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+      fontFamily: {
+        brillant: ['var(--font-brillant)', 'sans-serif'],
+        montserrat: ['var(--font-montserrat)', 'sans-serif']
       },
     },
   },
