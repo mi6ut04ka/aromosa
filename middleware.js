@@ -17,7 +17,7 @@ export function middleware(req) {
   return res;
 }
 
-// Matcher для всех путей
+// Matcher для всех API путей
 export const config = {
-  matcher: ['/api/*'],
+  matcher: ['/api/*'], // Применяется ко всем путям, начинающимся с /api/
 };
