@@ -15,11 +15,7 @@ const nextConfig = {
     env: {
         API_URL: 'https://aromosa.ru/api'
     },
-    headers: {
-        'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type, X-Auth-Token, Authorization, Origin',
-    }
+    
 };
 
 export default nextConfig;
