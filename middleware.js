@@ -19,5 +19,5 @@ export function middleware(req) {
 
 // Matcher для всех API путей
 export const config = {
-  matcher: ['/api/*'], // Применяется ко всем путям, начинающимся с /api/
-};
+    matcher: ['/api/*.json'], // Применяется только к API маршрутам с расширением .json
+  };
