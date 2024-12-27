@@ -1,5 +1,5 @@
-# Используем базовый образ Node.js
-FROM node:18-alpine
+# Используем официальный образ Node.js для сборки
+FROM node:18-alpine AS build
 
 # Устанавливаем рабочую директорию
 WORKDIR /app
@@ -10,14 +10,25 @@ COPY package*.json ./
 # Устанавливаем зависимости
 RUN npm install
 
-# Копируем весь проект
+# Копируем остальную часть приложения
 COPY . .
 
-# Собираем проект Next.js
+# Сборка проекта
 RUN npm run build
 
-# Указываем порт, на котором будет работать приложение
+# Переход к минимальному образу для запуска
+FROM node:18-alpine AS production
+
+WORKDIR /app
+
+# Копируем файлы из стадии сборки
+COPY --from=build /app ./
+
+# Устанавливаем только production-зависимости
+RUN npm prune --production
+
+# Указываем порт приложения
 EXPOSE 3000
 
 # Команда запуска
-CMD ["npm", "start"]
+CMD ["npm", "run", "start"]
