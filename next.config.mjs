@@ -13,7 +13,8 @@ const nextConfig = {
     ]
     },
     env: {
-        API_URL: 'https://aromosa.ru/api'
+        API_URL: 'https://aromosa.ru/api',
+        API: 'https://aromosa.ru'
     },
     
 };
