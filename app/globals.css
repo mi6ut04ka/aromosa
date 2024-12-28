@@ -12,10 +12,6 @@ body {
   background: var(--background);
 }
 
-:root {
-  --swiper-theme-color: #fff !important; 
-}
-
 
 
 
