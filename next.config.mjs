@@ -1,22 +1,20 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-   "images": {
+  images: {
     remotePatterns: [
       {
-        "protocol": "http",
-        "hostname": "89.104.71.159"
+        protocol: "http",
+        hostname: process.env.NEXT_PUBLIC_HOSTNAME || "localhost",
       },
       {
-        "protocol": "https",
-        "hostname": "89.104.71.159"
-      }
-    ]
-    },
-    env: {
-        API_URL: 'https://aromosa.ru/api',
-        API: 'https://aromosa.ru'
-    },
-    
+        protocol: "https",
+        hostname: process.env.NEXT_PUBLIC_HOSTNAME || "localhost",
+      },
+    ],
+  },
+  env: {
+    API_URL: process.env.NEXT_PUBLIC_API_URL || "http://localhost/api",
+  },
 };
 
 export default nextConfig;

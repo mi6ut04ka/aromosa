@@ -4,7 +4,7 @@ export default async function ProductGrid(props) {
   try {
     return (
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {props.products && props.products.map((product) => (
+        {await props.products.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
